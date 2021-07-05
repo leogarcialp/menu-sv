@@ -1,0 +1,87 @@
+:root {
+	--primary: #0f47af;
+	--secondary: #3b68bd;
+	--white: #ffffff;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	/* background-image: url(./assets/img/wave-bg.svg);
+	background-repeat: no-repeat;
+	background-size: cover; */
+}
+
+h1,h2,h3 {
+	font-family: 'Roboto', sans-serif;
+}
+
+p {
+	font-family: 'Montserrat', sans-serif;
+}
+
+img {
+	max-width: 100%;
+}
+
+/* Styles - Mobile First */
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 6rem;
+	background-color: var(--primary);
+}
+
+.header__logo {
+	color: var(--white);
+}
+
+.header__logo-gradient {
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(to bottom, #ffffff, #d5d3e9, #a7a9d4, #7683c0, #365fac);
+}
+
+/* main */
+.main__title-container {
+	margin-top: 8rem;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+.main__title {
+	margin-bottom: 1rem;
+}
+
+.underline {
+	width: 10rem;
+	height: .3rem;
+	margin: 0 auto;
+	background-color: var(--primary);
+}
+
+.btn-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 4rem;
+}
+
+.btn-filter {
+	margin: 0 1rem;
+	padding: .3rem .8rem;
+	background: transparent;
+	border: 1px solid var(--primary);
+	border-radius: .5rem;
+	letter-spacing: .3rem;
+}
+
