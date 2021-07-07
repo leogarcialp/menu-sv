@@ -1,6 +1,7 @@
 :root {
 	--primary: #0f47af;
 	--secondary: #3b68bd;
+	--grey1: #617d98;
 	--white: #ffffff;
 }
 
@@ -16,6 +17,7 @@ html {
 
 body {
 	font-size: 1.6rem;
+	font-family: 'Montserrat', sans-serif;
 	/* background-image: url(./assets/img/wave-bg.svg);
 	background-repeat: no-repeat;
 	background-size: cover; */
@@ -26,15 +28,16 @@ h1,h2,h3 {
 }
 
 p {
-	font-family: 'Montserrat', sans-serif;
+	font-size: 1.4rem;
+	color: var(--grey1);
 }
 
 img {
-	max-width: 100%;
+	width: 100%;
 }
 
 /* Styles - Mobile First */
-header {
+.header__page {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -70,6 +73,7 @@ header {
 	background-color: var(--primary);
 }
 
+/* TODO: add an horizontal scroll */
 .btn-container {
 	display: flex;
 	justify-content: center;
@@ -85,3 +89,41 @@ header {
 	letter-spacing: .3rem;
 }
 
+/* menu items */
+.section-center {
+	display: grid;
+	justify-items: center;
+	gap: 4rem 2rem;
+	width: 90vw;
+	max-width: 120rem;
+	margin: 0 auto;
+}
+
+/* TODO: fix max-width to 30 */
+.menu-item {
+	display: grid;
+	gap: 1.5rem 2rem;
+	max-width: 25rem;
+}
+
+.photo {
+	height: 200px;
+	object-fit: cover;
+	border: 3px solid var(--secondary);
+}
+
+.item-info header {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: .5rem;
+	border-bottom: 0.5px dotted var(--grey1);
+}
+
+.item-text {
+	margin-bottom: 0;
+	padding-top: 1rem;
+}
+
+.price {
+	color: var(--primary);
+}
