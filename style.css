@@ -1,6 +1,7 @@
 :root {
 	--primary: #0f47af;
 	--secondary: #3b68bd;
+	--dorado: #a09425;
 	--grey1: #617d98;
 	--white: #ffffff;
 
@@ -45,10 +46,6 @@ p {
 	}
 
 	h4 {
-		font-size: 2rem;
-	}
-	
-	p {
 		font-size: 1.6rem;
 	}
 }
@@ -82,7 +79,7 @@ main {
 }
 
 .main__title-container {
-	margin-bottom: 2rem;
+	margin-bottom: 4rem;
 	text-align: center;
 }
 
@@ -101,13 +98,14 @@ main {
 .btn-container {
 	display: flex;
 	justify-content: center;
-	margin-bottom: 4rem;
+	margin-bottom: 6rem;
 }
 
 /* TODO: fix size on bigger screens */
 .btn-filter {
 	margin: 0 1rem;
-	padding: .3rem .8rem;
+	padding: .5rem 1rem;
+	font-size: 1em;
 	background: transparent;
 	border: 1px solid var(--primary);
 	border-radius: .5rem;
@@ -124,7 +122,6 @@ main {
 	margin: 0 auto;
 }
 
-/* TODO: fix max-width to 30 */
 .menu-item {
 	display: grid;
 	gap: 1.5rem 2rem;
@@ -134,7 +131,8 @@ main {
 .photo {
 	height: 200px;
 	object-fit: cover;
-	border: 3px solid var(--secondary);
+	border: 3px solid #6299ff;
+	border-radius: .5rem;
 }
 
 .item-info header {
@@ -151,7 +149,7 @@ main {
 }
 
 .price {
-	color: var(--primary);
+	color: var(--dorado);
 }
 
 /* media queries */
