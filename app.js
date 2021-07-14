@@ -102,7 +102,7 @@ const menu = [
    {
       id: 12, 
       title: 'Minuta',
-      category: 'breakfast',
+      category: 'dessert',
       price: 1.00,
       img: "./assets/img/item12.jpg",
       desc: 'Im baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed',
@@ -110,12 +110,38 @@ const menu = [
 ]
 
 const sectionCenter = document.querySelector('.section-center');
-
+const filterBtns = document.querySelectorAll('.btn-filter');
 
 
 // when DOM loads
 window.addEventListener('DOMContentLoaded', () => {
-   let displayMenu = menu.map( (item) => {
+   displayMenuItems(menu);
+});
+
+
+// filtering menu items
+filterBtns.forEach( (btn) => {
+   btn.addEventListener('click', (e) => {
+      const category = e.currentTarget.dataset.id;
+
+      const menuCategory = menu.filter( (menuItem) => {
+         if(menuItem.category === category) {
+            return menuItem;
+         }
+      });
+
+      if(category === 'all') {
+         displayMenuItems(menu);
+      } else {
+         displayMenuItems(menuCategory);
+      }
+   });
+});
+
+
+// Functions
+function displayMenuItems(menuItems) {
+   let displayMenu = menuItems.map( (item) => {
       // console.log(item);
       
       return `<article class="menu-item">
@@ -134,4 +160,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
    displayMenu = displayMenu.join("");
    sectionCenter.innerHTML = displayMenu;
-});
+}
+
+// video 2:55:07
