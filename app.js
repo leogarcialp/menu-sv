@@ -6,7 +6,7 @@ const menu = [
       category: 'tipical',
       price: 1.00,
       img: "./assets/img/item1.jpg",
-      desc: 'The best known typical dish. A rice or corn flour tortilla filled with beans, cheese and/or chicharrón. Accompanied by "curtido" and tomato sauce.',
+      desc: 'Order of three. The best known typical dish. A rice or corn flour tortilla filled with beans, cheese and/or chicharrón. Accompanied by "curtido" and tomato sauce.',
    },
 
    {
@@ -23,24 +23,24 @@ const menu = [
       title: 'Pasteles',
       category: 'tipical',
       price: 1.00,
-      img: "./assets/img/item3.jpg",
-      desc: 'Cakes stuffed with vegetables and meat. Made with corn flour. Served with "curtido" and tomato sauce.',
+      img: "./assets/img/item3.jpeg",
+      desc: ' Order of three. Cakes stuffed with vegetables and meat. Made with corn flour. Served with "curtido" and tomato sauce.',
    },
 
    {
       id: 4, 
       title: 'Nuegados',
       category: 'tipical',
-      price: 1.00,
+      price: 1.75,
       img: "./assets/img/item4.jpg",
-      desc: 'It is a sweet dish that is usually eaten as a snack or dessert. They are made of yucca dough',
+      desc: 'Order of four. It is a sweet dish that is usually eaten as a snack or dessert. They are made of yucca dough',
    },
 
    {
       id: 5, 
       title: 'Tipical Breakfast',
       category: 'breakfast',
-      price: 1.00,
+      price: 2.00,
       img: "./assets/img/item5.jpg",
       desc: 'Ground beans with cream and fried plantain slices or strips.',
    },
@@ -49,7 +49,7 @@ const menu = [
       id: 6, 
       title: 'Tamales de Elote',
       category: 'breakfast',
-      price: 1.00,
+      price: 2.00,
       img: "./assets/img/item6.jpg",
       desc: 'Im baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed',
    },
@@ -58,7 +58,7 @@ const menu = [
       id: 7, 
       title: 'Tamales de Chipilin',
       category: 'breakfast',
-      price: 1.00,
+      price: 2.00,
       img: "./assets/img/item7.jpg",
       desc: 'Im baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed',
    },
@@ -67,7 +67,7 @@ const menu = [
       id: 8, 
       title: 'Horchata',
       category: 'drinks',
-      price: 1.00,
+      price: 1.75,
       img: "./assets/img/item8.jpg",
       desc: 'Im baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed',
    },
@@ -76,7 +76,7 @@ const menu = [
       id: 9, 
       title: 'Atol de Elote',
       category: 'drinks',
-      price: 1.00,
+      price: 1.75,
       img: "./assets/img/item9.jpg",
       desc: 'Im baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed',
    },
@@ -85,7 +85,7 @@ const menu = [
       id: 10, 
       title: 'Atol de Piñuela',
       category: 'drinks',
-      price: 1.00,
+      price: 1.75,
       img: "./assets/img/item10.jpg",
       desc: 'Im baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed',
    },
@@ -94,9 +94,9 @@ const menu = [
       id: 11, 
       title: 'Empanadas',
       category: 'dessert',
-      price: 1.00,
+      price: 2.00,
       img: "./assets/img/item11.jpg",
-      desc: 'Im baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed',
+      desc: 'Order of four. Im baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed',
    },
 
    {
@@ -109,9 +109,29 @@ const menu = [
    },
 ]
 
+const sectionCenter = document.querySelector('.section-center');
+
+
 
 // when DOM loads
 window.addEventListener('DOMContentLoaded', () => {
-   // console.log('cargando contenido xd');
-   sectionCenter.style.display = 'grid';
+   let displayMenu = menu.map( (item) => {
+      // console.log(item);
+      
+      return `<article class="menu-item">
+         <img src=${item.img} class="photo" alt=${item.title}>
+         <div class="item-info">
+            <header>
+               <h4>${item.title}</h4>
+               <h4 class="price">$${item.price}</h4>
+            </header>
+            <p class="item-text">
+               ${item.desc}
+            </p>
+         </div>
+      </article>`;
+   });
+
+   displayMenu = displayMenu.join("");
+   sectionCenter.innerHTML = displayMenu;
 });
