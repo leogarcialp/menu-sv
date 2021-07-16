@@ -140,6 +140,8 @@ filterBtns.forEach( (btn) => {
 
 
 // Functions
+
+// display all menu items
 function displayMenuItems(menuItems) {
    let displayMenu = menuItems.map( (item) => {
       // console.log(item);
@@ -162,4 +164,5 @@ function displayMenuItems(menuItems) {
    sectionCenter.innerHTML = displayMenu;
 }
 
+// Add dynamic buttons according to category
 // video 2:55:07
