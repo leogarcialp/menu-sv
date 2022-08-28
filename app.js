@@ -110,33 +110,52 @@ const menu = [
 ]
 
 const sectionCenter = document.querySelector('.section-center');
-const filterBtns = document.querySelectorAll('.btn-filter');
+const container = document.querySelector('.btn-container');
 
 
 // when DOM loads
 window.addEventListener('DOMContentLoaded', () => {
    displayMenuItems(menu);
-});
 
+   const categories = menu.reduce((values, item) => {
+      if(!values.includes(item.category)) {
+         values.push(item.category);
+      }
+      return values;      
+   },['all']);
 
-// filtering menu items
-filterBtns.forEach( (btn) => {
-   btn.addEventListener('click', (e) => {
-      const category = e.currentTarget.dataset.id;
+   const categoryBtns = categories.map((category) => {
+      return `<button class="btn-filter" type="button" 
+      data-id="${category}">
+            ${category}
+         </button>`
+   }).join("");
 
-      const menuCategory = menu.filter( (menuItem) => {
-         if(menuItem.category === category) {
-            return menuItem;
+   container.innerHTML = categoryBtns;
+
+   const filterBtns = document.querySelectorAll('.btn-filter');
+
+   // filtering menu items
+   filterBtns.forEach( (btn) => {
+      btn.addEventListener('click', (e) => {
+         const category = e.currentTarget.dataset.id;
+
+         const menuCategory = menu.filter( (menuItem) => {
+            if(menuItem.category === category) {
+               return menuItem;
+            }
+         });
+
+         if(category === 'all') {
+            displayMenuItems(menu);
+         } else {
+            displayMenuItems(menuCategory);
          }
       });
-
-      if(category === 'all') {
-         displayMenuItems(menu);
-      } else {
-         displayMenuItems(menuCategory);
-      }
    });
 });
+
+
 
 
 // Functions
@@ -153,9 +172,7 @@ function displayMenuItems(menuItems) {
                <h4>${item.title}</h4>
                <h4 class="price">$${item.price}</h4>
             </header>
-            <p class="item-text">
-               ${item.desc}
-            </p>
+            <p class="item-text">${item.desc}</p>
          </div>
       </article>`;
    });
@@ -163,6 +180,3 @@ function displayMenuItems(menuItems) {
    displayMenu = displayMenu.join("");
    sectionCenter.innerHTML = displayMenu;
 }
-
-// Add dynamic buttons according to category
-// video 2:55:07
